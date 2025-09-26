@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatFlow - Real-Time Messaging</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landing-page">
+        <div class="landing-card">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </div>
+            <h1 class="app-title">ChatFlow</h1>
+            <p class="app-subtitle">Enter your name to start chatting</p>
+            
+            <div class="input-section">
+                <div class="chat-type-section">
+                    <label>Choose Chat Option</label>
+                    <div class="chat-type-buttons">
+                        <button id="group-chat-btn" class="chat-type-btn">Group Chat</button>
+                        <button id="private-chat-btn" class="chat-type-btn">Private Messages</button>
+                    </div>
+                </div>
+                
+                <!-- Online Users for Private Chat -->
+                <div class="online-users-section hidden" id="online-users-section">
+                    <label>Select Users to Chat With</label>
+                    <div class="online-users-list" id="online-users-list">
+                        <!-- Online users will be populated here -->
+                    </div>
+                    <p class="loading-users" id="loading-users">Loading online users...</p>
+                </div>
+                
+                <button class="join-button" id="join-button">Start Chatting</button>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div class="main" id="chat-interface" style="display: none;">
+        <div class="name">
+            <span><i class="far fa-user"></i></span>
+            <input type="text" id="name-input" class="name-input" value="Your Name:" maxlength="20" />
+        </div>
+
+        <ul class="message-container" id="message-container">
+            <!-- <li class="message-left">
+            <p class="message">lorem lor
+                <span>bluebird -> 26 July 2024</span>
+            </p>
+            </li>
+
+             <li class="message-right">
+            <p class="message">lorem lor
+                <span>bluebird -> 26 July 2024</span>
+            </p>
+            </li> -->
+
+            <!-- <li class="message-feedback">
+                <p class="feedback" id="feedback">
+                    killer is typing a message
+                </p> -->
+            </li>
+        </ul>
+
+        <form action="#" class="message-form" id="message-form">
+            <input type="text" name="message" id="message-input" class="message-input">
+            <div class="v-divider"></div>
+            <button type="submit" class="send-button">send
+                <span><i class="fas fa-paper-plane"></i></span>
+            </button>
+        </form>
+
+        <h3 class="clients-total" id="clients-total">Total Users:2</h3>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
